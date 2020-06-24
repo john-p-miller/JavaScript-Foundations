@@ -3,6 +3,10 @@
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
+var principal=200000;
+var interestrate=0.05;
+var years=30;
+var name="johnmiller";
 
 
 
@@ -14,7 +18,8 @@
 (1) Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12. 
 (2) Create another variable called `periods` and give it the value of years*12.
 */
-
+var monthlyInterestRate=interestrate/12;
+var periods=years*12;
 
 
 
@@ -34,6 +39,12 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
+var n1=Math.pow(1+monthlyInterestRate,periods);
+var numerator=principal*n1*monthlyInterestRate;
+var denominator=n1-1;
+var monthlyRate=numerator/denominator;
+
+console.log(monthlyRate)
 
 
 
