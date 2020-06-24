@@ -101,7 +101,9 @@ Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by
 
 
 // 🏡 Task 6: Loops
-/* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
+/* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, 
+except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus
+ 2% from the inputted interest rate. Complete these calculations using a for loop.
 
 For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
@@ -115,8 +117,24 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.055, your monthly rate is $1136"
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
+function variableInterestRate (principal, interestrate, years){
+    interestrate=interestrate-0.02;
+    var maxrate=interestrate+0.04;
+    
+    for(;interestrate<=maxrate;interestrate=interestrate+0.005)  {
 
+  
+    var monthlyInterestRate=interestrate/12;
+    var periods=years*12;
+    var n1=Math.pow(1+monthlyInterestRate,periods);
+    var numerator=principal*n1*monthlyInterestRate;
+    var denominator=n1-1;
+    var monthlyRate=numerator/denominator;
+    console.log (`${name},within interest rate of${interestrate} your monthly rate is ${monthlyRate}`);
+  }
+}
 
+console.log(variableInterestRate(200000,0.04,30))
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
